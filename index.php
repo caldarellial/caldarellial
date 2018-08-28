@@ -64,6 +64,9 @@
                         <div class="col-sm-12 col-md-6 about-content">
                             <p class="about-content-description">Hello! My name is Albert Caldarelli. I'm a senior at Cornell University studying Information Science, and will be continuing
                             my studies until December of 2019 to complete a Master of Professional Studies.</p>
+                            <a class="btn-rect" target="_blank" href="https://www.github.com/caldarellial">Github <i class="fab fa-github"></i></a>
+                            <a class="btn-rect" target="_blank" href="https://www.linkedin.com/in/albert-caldarelli-40b116b4/">LinkedIn <i class="fab fa-linkedin"></i></a>
+                            <a class="btn-rect" href="mailto:caldarellial@gmail.com">Email <i class="far fa-envelope-open"></i></a>
                         </div>
                     </div>
                 </div>
