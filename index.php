@@ -3,6 +3,7 @@
     <meta name="description" content="description here">
     <meta name="keywords" content="keywords,here">-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Roboto:300,400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 	<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -17,8 +18,19 @@
 	</head>
 	<body>
 		<section ng-app="ACClient" ng-controller="ACController">
-            <div class="content col-xs-12">
-                
+            <span class="header-back"></span>
+            <div class="header">
+                <div class="content">
+                    <p class="header-text">Hello.</p>
+                    <div class="header-nav">
+                        <a class="header-nav-entry" target="_blank" href="resume.pdf">Resume</a>
+                    </div>
+                    <span class="clearfix"></span>
+                </div>
+            </div>
+            <div class="content body-content">
+                <p class="flavor col-sm-12 col-md-6">My name is Albert, and I create.</p>
+
             </div>
 		</section>
 
