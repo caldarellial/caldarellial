@@ -58,7 +58,7 @@
                     <div class="row">
                         <div class="col-sm-12 col-md-6">
                             <div class="project-square">
-                                <img class="project-image" src="img/about_ac.png">
+                                <img class="project-image about-image" src="img/mtn.jpg">
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-6 about-content">
