@@ -17,7 +17,7 @@
 	
 	</head>
 	<body>
-		<section ng-app="ACClient" ng-controller="ACController">
+		<section ng-app="ACClient" ng-controller="ACController" layout-fill>
             <span class="full-back" ng-style="(activeProject?activeFullBackStyle:fullBackStyle)"></span>
             <span class="header-back"></span>
             <div class="header">
@@ -32,12 +32,24 @@
             <div class="content body-content">
                 <p class="flavor col-sm-12 col-md-6">My name is Albert, and I create.</p>
                 <div class="projects-container">
-                    <div ng-if="projects" ng-click="selectProject(project);" class="project-square" ng-repeat="project in projects" ng-style="(activeProject?activeProjectStyle:project.projectStyle)"></div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6" ng-if="projects" ng-repeat="project in (projects | filter:displayProject)">
+                            <div class="project-square" ng-mouseover="isHovered=true;" ng-mouseleave="isHovered=false;" ng-click="selectProject(project);" ng-style="(activeProject?activeProjectStyle:project.projectStyle)">
+                                <div class="project-cover" ng-style="project.projectStyle" ng-show="isHovered && !activeProject">
+                                    <div class="project-overlay-text">
+                                        <p class="project-title">{{project.title}}</p>
+                                        <p class="project-subtitle">{{project.subtitle}}</p>
+                                    </div>
+                                </div>
+                                <img class="project-image" src="img/{{(activeProject)?project.image_active:project.image_default}}">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 		</section>
 
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-sanitize.js" type="text/javascript"></script>
 		
@@ -47,6 +59,7 @@
 		
 	
 		<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.4/angular-material.min.js"></script>
+        <script src="js/angular-animate.js"></script>
 		
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>

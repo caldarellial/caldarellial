@@ -1,6 +1,5 @@
 body, html {
   font-family: "Roboto", sans-serif;
-  min-height: 100vh;
   background: none;
   transition:.35s;
 }
@@ -224,11 +223,52 @@ table {
 }
 
 .project-square{
-  width:580px;
-  height:580px;
+  height:560px;
   transition:.35s;
 }
 
 .project-square:focus{
   outline:none;
+}
+
+.project-cover{
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:15px;
+  right:15px;
+  transition:.35s;
+  color:white;
+  z-index:1;
+}
+  .project-cover.ng-hide{
+    opacity:0;
+  }
+  
+.project-overlay-text{
+  text-align:center;
+  margin:auto;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.project-title{
+  line-height:normal;
+  font-size:54px;
+  font-family: 'Raleway', sans-serif;
+  margin:0;
+}
+.project-subtitle{
+  line-height:normal;
+  font-size:16px;
+  font-family: 'Raleway', sans-serif;
+  margin:0;
+}
+
+.project-image{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translateX(-50%) translateY(-50%);
 }

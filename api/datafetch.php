@@ -8,6 +8,7 @@
 					SELECT
 					id,
 					title,
+					subtitle,
 					image_default,
 					image_active,
 					color,
@@ -19,7 +20,7 @@
 				");
 				
 				$stmt->bind_param("ii",$typeid,$typeid);
-				$stmt->bind_result($rId,$rTitle,$rImageDefault,$rImageActive,$rColor,$rDescription,$rUrl);
+				$stmt->bind_result($rId,$rTitle,$rSubtitle,$rImageDefault,$rImageActive,$rColor,$rDescription,$rUrl);
 				$stmt->execute();
 				$stmt->store_result();
 				$retobj = [];
@@ -27,6 +28,7 @@
 					$retobj[] = [
 						"id"=>$rId,
 						"title"=>$rTitle,
+						"subtitle"=>$rSubtitle,
 						"image_default"=>$rImageDefault,
 						"image_active"=>$rImageActive,
 						"color"=>$rColor,

@@ -1,4 +1,4 @@
-var app = angular.module('ACClient',['ngSanitize','ngMaterial','ui.bootstrap.contextMenu'],function($httpProvider) {
+var app = angular.module('ACClient',['ngSanitize','ngMaterial','ui.bootstrap.contextMenu',"ngAnimate"],function($httpProvider) {
 	// Use x-www-form-urlencoded Content-Type
 	$httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
   
@@ -80,6 +80,7 @@ var app = angular.module('ACClient',['ngSanitize','ngMaterial','ui.bootstrap.con
 	$scope.activeProject = false;
 	
 	$scope.fullBackStyle = {background:"#f3f5fb"};//{background:"#2554e2"};
+	$scope.activeProjectStyle = {background:"white"};
 	
 	$scope.selectProject = function(project){
 		if (project == $scope.activeProject){$scope.activeProject = false; return;}
@@ -88,11 +89,9 @@ var app = angular.module('ACClient',['ngSanitize','ngMaterial','ui.bootstrap.con
 	};
 	
 	//Filter to show all projects when no active one, and only active when selected
-	$scope.displayProject = function(){
-		return function(project){
-			if (!$scope.activeProject){return true;}
-			return $scope.activeProject == project;
-		};
+	$scope.displayProject = function(project){
+		if (!$scope.activeProject){return true;}
+		return $scope.activeProject == project;
 	};
 }])
 .filter('reverse', function() {
