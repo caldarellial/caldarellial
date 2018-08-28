@@ -54,9 +54,11 @@ var app = angular.module('ACClient',['ngSanitize','ngMaterial','ui.bootstrap.con
 	$scope.version = currentVersion;
 	
 	$scope.activeTab = 'home';
-	$scope.activeObj = false;
 	$scope.setActiveTab = function(tab){
 		$scope.activeTab = tab;
+		if (tab != 'home'){
+			$scope.activeProject = false;
+		}
 	};
 	
 	//**Fetchers**//
@@ -79,8 +81,11 @@ var app = angular.module('ACClient',['ngSanitize','ngMaterial','ui.bootstrap.con
 	
 	$scope.activeProject = false;
 	
-	$scope.fullBackStyle = {background:"#f3f5fb"};//{background:"#2554e2"};
+	$scope.fullBackStyle = {background:"#f3f5fb"};
 	$scope.activeProjectStyle = {background:"white"};
+	$scope.buildAnimatedProjectStyle = function(project,index){
+		return {color:project.color,left:(index%2==0?"-2000px":"2000px")};
+	};
 	
 	$scope.selectProject = function(project){
 		if (project == $scope.activeProject){$scope.activeProject = false; return;}

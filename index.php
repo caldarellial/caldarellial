@@ -18,13 +18,15 @@
 	</head>
 	<body>
 		<section ng-app="ACClient" ng-controller="ACController" layout-fill>
-            <span class="full-back" ng-style="(activeProject?activeFullBackStyle:fullBackStyle)"></span>
+            <span class="full-back" ng-style="((activeProject||activeTab=='about')?activeFullBackStyle:fullBackStyle)"></span>
             <span class="header-back" ng-style="(activeProject?fullBackStyle:false)"></span>
             <div class="header">
                 <div class="content">
                     <p class="header-text">Hello.</p>
                     <div class="header-nav">
-                        <a class="header-nav-entry" target="_blank" href="resume.pdf">Resume</a>
+                        <p class="header-nav-entry float-left" ng-click="setActiveTab('home');" ng-class="{'active':(activeTab=='home')}">Home</p>
+                        <p class="header-nav-entry float-left" ng-click="setActiveTab('about');" ng-class="{'active':(activeTab=='about')}">About</p>
+                        <a class="header-nav-entry float-left" target="_blank" href="resume.pdf">Resume</a>
                     </div>
                     <span class="clearfix"></span>
                 </div>
@@ -34,7 +36,7 @@
                 <div class="projects-container">
                     <div class="row">
                         <div class="col-sm-12 col-md-6" ng-if="projects" ng-repeat="project in (projects | filter:displayProject)">
-                            <div class="project-square" ng-mouseover="isHovered=true;" ng-mouseleave="isHovered=false;" ng-click="selectProject(project);" ng-style="(activeProject?activeProjectStyle:project.projectStyle)">
+                            <div class="project-square" ng-mouseover="isHovered=true;" ng-mouseleave="isHovered=false;" ng-click="selectProject(project);" ng-style="(activeTab=='home')?(activeProject?activeProjectStyle:project.projectStyle):(buildAnimatedProjectStyle(project,$index))">
                                 <div class="project-cover" ng-style="project.projectStyle" ng-show="isHovered && !activeProject">
                                     <div class="project-overlay-text">
                                         <p class="project-title">{{project.title}}</p>
@@ -49,6 +51,19 @@
                             <p class="project-content-subtitle">{{activeProject.subtitle}}</p>
                             <a class="project-content-url" target="_blank" ng-href="{{activeProject.url}}">{{activeProject.url}}</a>
                             <p class="project-content-description">{{activeProject.description}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-container">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="project-square">
+                                <img class="project-image" src="img/profile.png">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 about-content">
+                            <p class="about-content-description">Hello! My name is Albert Caldarelli. I'm a senior at Cornell University studying Information Science, and will be continuing
+                            my studies until December of 2019 to complete a Master of Professional Studies.</p>
                         </div>
                     </div>
                 </div>

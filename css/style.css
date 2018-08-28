@@ -4,6 +4,10 @@ body, html {
   transition:.35s;
 }
 
+section{
+  overflow-x:hidden;
+}
+
 .content{
 	max-width:1200px;
 	margin: auto;
@@ -45,9 +49,17 @@ body, html {
 	color:#5f5f5f;
 	transition: 0.25s;
 	font-size:16px;
+  margin-left:8px;
+}
+.header-nav-entry.active{
+  color:black;
+  text-decoration:underline;
+}
+.header-nav-entry:focus{
+  outline:none;
 }
 
-.header-nav-entry:hover{
+.header-nav-entry:not(.active):hover{
 	text-decoration: none;
 	color:black;
 	transition: 0.25s;
@@ -225,7 +237,9 @@ table {
 
 .project-square{
   height:560px;
-  transition:.35s;
+  position:relative;
+  left:0;
+  transition:.65s;
 }
 
 .project-square:focus{
@@ -306,6 +320,17 @@ table {
   text-decoration:underline;
 }
 .project-content-description{
+  font-size:14px;
+  font-family: 'Raleway', sans-serif;
+  margin:32px 0 0 0 ;
+}
+
+.about-content{
+  color:black;
+  line-height:normal;
+  padding-top:96px;
+}
+.about-content-description{
   font-size:14px;
   font-family: 'Raleway', sans-serif;
   margin:32px 0 0 0 ;
