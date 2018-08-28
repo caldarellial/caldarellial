@@ -60,7 +60,18 @@ var app = angular.module('ACClient',['ngSanitize','ngMaterial','ui.bootstrap.con
 	};
 	
 	//**Fetchers**//
-	
+	$scope.projects = false;
+	$scope.fetchProjects = function(){
+		$.post(apiUrl+"projects/fetch",{},function(data){
+			console.log(data);
+			if (data.success){
+				$scope.projects = data.success;
+			}else{
+				$scope.projectsError = data.error;
+			}
+		});
+	};
+	$scope.fetchProjects();
 	//**Fetchers End**//
 	
 	$scope.fullBackStyle = {background:"#2554e2"};
