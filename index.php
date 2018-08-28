@@ -19,7 +19,7 @@
 	<body>
 		<section ng-app="ACClient" ng-controller="ACController" layout-fill>
             <span class="full-back" ng-style="(activeProject?activeFullBackStyle:fullBackStyle)"></span>
-            <span class="header-back"></span>
+            <span class="header-back" ng-style="(activeProject?fullBackStyle:false)"></span>
             <div class="header">
                 <div class="content">
                     <p class="header-text">Hello.</p>
@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div class="content body-content">
-                <p class="flavor col-sm-12 col-md-6">My name is Albert, and I create.</p>
+                <p class="flavor col-sm-12 col-md-8">My name is Albert. I love to make things.</p>
                 <div class="projects-container">
                     <div class="row">
                         <div class="col-sm-12 col-md-6" ng-if="projects" ng-repeat="project in (projects | filter:displayProject)">
@@ -43,6 +43,12 @@
                                 </div>
                                 <img class="project-image" src="img/{{(activeProject)?project.image_active:project.image_default}}">
                             </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 project-content" ng-show="activeProject">
+                            <p class="project-content-title">{{activeProject.title}}</p>
+                            <p class="project-content-subtitle">{{activeProject.subtitle}}</p>
+                            <a class="project-content-url" target="_blank" ng-href="{{activeProject.url}}">{{activeProject.url}}</a>
+                            <p class="project-content-description">{{activeProject.description}}</p>
                         </div>
                     </div>
                 </div>

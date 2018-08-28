@@ -15,8 +15,7 @@ body, html {
 
 .full-back{
   position:absolute;
-  top:0;
-  bottom:0;
+  height:100%;
   left:0;
   right:0;
   z-index:-2;
@@ -61,6 +60,7 @@ body, html {
   height:484px;
   top: 0;
   z-index:-1;
+  transition:.35s;
 }
 
 .float-left{
@@ -272,4 +272,41 @@ table {
   top:50%;
   left:50%;
   transform: translateX(-50%) translateY(-50%);
+}
+
+.project-content{
+  color:white;
+  line-height:normal;
+  padding-top:96px;
+}
+
+.project-content-title{
+  font-size:32px;
+  font-family: 'Raleway', sans-serif;
+  margin:0;
+}
+.project-content-subtitle{
+  font-size:16px;
+  font-family: 'Raleway', sans-serif;
+  margin:0;
+}
+.project-content-url{
+  color:white;
+  font-size:16px;
+  font-family: 'Raleway', sans-serif;
+  margin:0;
+  text-decoration:underline;
+}
+.project-content-url:hover{
+  color:white;
+  font-size:16px;
+  font-family: 'Raleway', sans-serif;
+  margin:0;
+  opacity:.85;
+  text-decoration:underline;
+}
+.project-content-description{
+  font-size:14px;
+  font-family: 'Raleway', sans-serif;
+  margin:32px 0 0 0 ;
 }

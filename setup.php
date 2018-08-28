@@ -1,6 +1,6 @@
 <?php
 	$version="0.0.1";
-	define('API_LOCATION',"http://www.caldarellial.us/api/");
+	define('API_LOCATION',"https://www.caldarellial.us/api/");
 ?>
 
 <!DOCTYPE html>
