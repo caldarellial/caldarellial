@@ -18,6 +18,7 @@
 	</head>
 	<body>
 		<section ng-app="ACClient" ng-controller="ACController">
+            <span class="full-back" ng-style="fullBackStyle"></span>
             <span class="header-back"></span>
             <div class="header">
                 <div class="content">

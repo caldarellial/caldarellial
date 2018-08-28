@@ -62,6 +62,8 @@ var app = angular.module('ACClient',['ngSanitize','ngMaterial','ui.bootstrap.con
 	//**Fetchers**//
 	
 	//**Fetchers End**//
+	
+	$scope.fullBackStyle = {background:"#2554e2"};
 }])
 .filter('reverse', function() {
 	return function(items) {
