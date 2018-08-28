@@ -6,6 +6,7 @@
 			case "project":
 				$stmt = $conn->prepare("
 					SELECT
+					id,
 					title,
 					image_default,
 					image_active,
@@ -18,12 +19,14 @@
 				");
 				
 				$stmt->bind_param("ii",$typeid,$typeid);
-				$stmt->bind_result($rTitle,$rImageDefault,$rImageActive,$rColor,$rDescription,$rUrl);
+				$stmt->bind_result($rId,$rTitle,$rImageDefault,$rImageActive,$rColor,$rDescription,$rUrl);
 				$stmt->execute();
 				$stmt->store_result();
+				$retobj = [];
 				while($stmt->fetch()){
-					$retobj = [
+					$retobj[] = [
 						"id"=>$rId,
+						"title"=>$rTitle,
 						"image_default"=>$rImageDefault,
 						"image_active"=>$rImageActive,
 						"color"=>$rColor,

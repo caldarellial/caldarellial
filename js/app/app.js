@@ -63,18 +63,37 @@ var app = angular.module('ACClient',['ngSanitize','ngMaterial','ui.bootstrap.con
 	$scope.projects = false;
 	$scope.fetchProjects = function(){
 		$.post(apiUrl+"projects/fetch",{},function(data){
-			console.log(data);
 			if (data.success){
-				$scope.projects = data.success;
+				$scope.projects = data.success.map(function(curVal){
+					curVal.projectStyle = {background:curVal.color};
+					return curVal;
+				});
 			}else{
 				$scope.projectsError = data.error;
 			}
-		});
+			$scope.$apply();
+		},"json");
 	};
 	$scope.fetchProjects();
 	//**Fetchers End**//
 	
-	$scope.fullBackStyle = {background:"#2554e2"};
+	$scope.activeProject = false;
+	
+	$scope.fullBackStyle = {background:"#f3f5fb"};//{background:"#2554e2"};
+	
+	$scope.selectProject = function(project){
+		if (project == $scope.activeProject){$scope.activeProject = false; return;}
+		$scope.activeProject = project;
+		$scope.activeFullBackStyle = project.projectStyle;
+	};
+	
+	//Filter to show all projects when no active one, and only active when selected
+	$scope.displayProject = function(){
+		return function(project){
+			if (!$scope.activeProject){return true;}
+			return $scope.activeProject == project;
+		};
+	};
 }])
 .filter('reverse', function() {
 	return function(items) {

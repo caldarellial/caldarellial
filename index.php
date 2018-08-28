@@ -18,7 +18,7 @@
 	</head>
 	<body>
 		<section ng-app="ACClient" ng-controller="ACController">
-            <span class="full-back" ng-style="fullBackStyle"></span>
+            <span class="full-back" ng-style="(activeProject?activeFullBackStyle:fullBackStyle)"></span>
             <span class="header-back"></span>
             <div class="header">
                 <div class="content">
@@ -31,7 +31,9 @@
             </div>
             <div class="content body-content">
                 <p class="flavor col-sm-12 col-md-6">My name is Albert, and I create.</p>
-
+                <div class="projects-container">
+                    <div ng-if="projects" ng-click="selectProject(project);" class="project-square" ng-repeat="project in projects" ng-style="(activeProject?activeProjectStyle:project.projectStyle)"></div>
+                </div>
             </div>
 		</section>
 
