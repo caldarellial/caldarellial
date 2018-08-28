@@ -56,9 +56,7 @@ var app = angular.module('ACClient',['ngSanitize','ngMaterial','ui.bootstrap.con
 	$scope.activeTab = 'home';
 	$scope.setActiveTab = function(tab){
 		$scope.activeTab = tab;
-		if (tab != 'home'){
-			$scope.activeProject = false;
-		}
+		$scope.activeProject = false;
 	};
 	
 	//**Fetchers**//

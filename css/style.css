@@ -233,6 +233,7 @@ table {
 
 .projects-container{
   padding-top:258px;
+  opacity:1;
 }
 
 .project-square{
@@ -240,6 +241,7 @@ table {
   position:relative;
   left:0;
   transition:.65s;
+  overflow:hidden;
 }
 
 .project-square:focus{
@@ -325,6 +327,10 @@ table {
   margin:32px 0 0 0 ;
 }
 
+.about-container{
+  padding-top:258px;
+  opacity:1;
+}
 .about-content{
   color:black;
   line-height:normal;
@@ -334,4 +340,40 @@ table {
   font-size:14px;
   font-family: 'Raleway', sans-serif;
   margin:32px 0 0 0 ;
+}
+/* Mobile handling */
+@media (max-width: 576px) {
+  .body-content{
+    margin-top:100px;
+  }
+  
+  .header-back{
+    height:434px;
+  }
+
+  .flavor{
+    font-size:48px;
+    text-align:center;
+  }
+  
+  .projects-container{
+    padding:0;
+  }
+  
+  .project-square{
+    height: 200px;
+    margin: 10px;
+  }
+  
+  .project-content{
+    padding: 0 25px;
+  }
+  
+  .about-container{
+    padding:0;
+  }
+  
+  .about-content{
+    padding: 0 25px;
+  }
 }

@@ -18,7 +18,7 @@
 	</head>
 	<body>
 		<section ng-app="ACClient" ng-controller="ACController" layout-fill>
-            <span class="full-back" ng-style="((activeProject||activeTab=='about')?activeFullBackStyle:fullBackStyle)"></span>
+            <span class="full-back" ng-style="((activeProject && activeTab=='home')?activeFullBackStyle:fullBackStyle)"></span>
             <span class="header-back" ng-style="(activeProject?fullBackStyle:false)"></span>
             <div class="header">
                 <div class="content">
@@ -33,7 +33,7 @@
             </div>
             <div class="content body-content">
                 <p class="flavor col-sm-12 col-md-8">My name is Albert. I love to make things.</p>
-                <div class="projects-container">
+                <div class="projects-container" ng-hide="activeTab=='about'">
                     <div class="row">
                         <div class="col-sm-12 col-md-6" ng-if="projects" ng-repeat="project in (projects | filter:displayProject)">
                             <div class="project-square" ng-mouseover="isHovered=true;" ng-mouseleave="isHovered=false;" ng-click="selectProject(project);" ng-style="(activeTab=='home')?(activeProject?activeProjectStyle:project.projectStyle):(buildAnimatedProjectStyle(project,$index))">
@@ -54,11 +54,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="about-container">
+                <div class="about-container" ng-hide="activeTab=='home'">
                     <div class="row">
                         <div class="col-sm-12 col-md-6">
                             <div class="project-square">
-                                <img class="project-image" src="img/profile.png">
+                                <img class="project-image" src="img/about_ac.png">
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-6 about-content">
